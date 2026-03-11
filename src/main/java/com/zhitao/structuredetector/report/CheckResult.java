@@ -22,13 +22,21 @@ public class CheckResult {
         this.warnings = new ArrayList<>();
     }
 
+    public void addError(String error){
+        this.errors.add(error);
+    }
+
+    public void addWarning(String warning){
+        this.warnings.add(warning);
+    }
+
     public String toString(){
         if (!errors.isEmpty() || !warnings.isEmpty()){
             passed=false;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("checker：").append(checkerName).append("\n");
-        sb.append("result：").append(passed ? "✅ pass" : "❌ fail").append("\n");
+        sb.append("result：").append(passed ? "pass" : "fail").append("\n");
 
         if (!errors.isEmpty()) {
             sb.append("errors：\n");
