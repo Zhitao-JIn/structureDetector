@@ -3,9 +3,7 @@ package com.zhitao.structuredetector.checkers;
 import com.zhitao.structuredetector.config.CheckerProperties;
 import com.zhitao.structuredetector.report.CheckResult;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,7 +16,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Component
 public class PackageStructureCehcker implements Checker {
-    private List<String> packageRequiredPackages;
+    private final List<String> packageRequiredPackages;
 
     public  PackageStructureCehcker(CheckerProperties checkerProperties) {
         this.packageRequiredPackages = checkerProperties.getPackageRequiredPackages();
